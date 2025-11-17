@@ -8,7 +8,7 @@ conda activate youtube
 pip install -r requirements.txt
 
 
-## DVC
+## DVC primer commit
 
 dvc init
 
