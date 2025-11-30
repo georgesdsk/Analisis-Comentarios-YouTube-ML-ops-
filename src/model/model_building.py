@@ -33,7 +33,7 @@ def load_params(params_path: str) -> dict:
         logger.debug('Parameters retrieved from %s', params_path)
         return params
     except FileNotFoundError:
-        logger.error('File not found: %s', params_path)
+        logger.error('File not foundz: %s', params_path)
         raise
     except yaml.YAMLError as e:
         logger.error('YAML error: %s', e)

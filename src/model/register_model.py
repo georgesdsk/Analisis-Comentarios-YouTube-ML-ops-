@@ -6,7 +6,7 @@ import logging
 import os
 
 # Set up MLflow tracking URI
-mlflow.set_tracking_uri("http://ec2-52-91-160-21.compute-1.amazonaws.com:5000/")
+mlflow.set_tracking_uri("http://ec2-34-228-162-227.compute-1.amazonaws.com:5000/")
 
 
 # logging configuration
@@ -31,7 +31,7 @@ def load_model_info(file_path: str) -> dict:
     try:
         with open(file_path, 'r') as file:
             model_info = json.load(file)
-        logger.debug('Model info loaded from %s', file_path)
+        logger.debug('Model info  loaded from %s', file_path)
         return model_info
     except FileNotFoundError:
         logger.error('File not found: %s', file_path)

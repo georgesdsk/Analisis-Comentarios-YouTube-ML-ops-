@@ -1,0 +1,15 @@
+name: Test Self-Hosted Runner
+
+on:
+  workflow_dispatch:  # Para lanzarlo a mano desde Actions
+
+jobs:
+  test-job:
+    runs-on: self-hosted
+    steps:
+      - name: Mostrar info del runner
+        run: |
+          echo "Runner funcionando ✅"
+          hostname
+          pwd
+          ls

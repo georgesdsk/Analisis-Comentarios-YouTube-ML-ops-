@@ -1,0 +1,171 @@
+### ===========================================
+### PRUEBAS DE LA API DE SENTIMENT ANALYSIS
+### ===========================================
+
+### 1. Test Home Endpoint (GET)
+GET http://localhost:8080/
+Accept: application/json
+
+###
+
+### 2. Test Predict - Comentarios Positivos
+POST http://localhost:8080/predict
+Content-Type: application/json
+
+{
+  "comments": [
+    "This video is amazing!",
+    "Great explanation, very helpful!",
+    "Best tutorial ever, thank you!"
+  ]
+}
+
+###
+
+### 3. Test Predict - Comentarios Negativos
+POST http://localhost:8080/predict
+Content-Type: application/json
+
+{
+  "comments": [
+    "This is terrible",
+    "Very bad quality",
+    "Worst video I've seen"
+  ]
+}
+
+###
+
+### 4. Test Predict - Comentarios Mixtos
+POST http://localhost:8080/predict
+Content-Type: application/json
+
+{
+  "comments": [
+    "Great video but too long",
+    "Not sure if I understand",
+    "It's okay I guess",
+    "Amazing content!",
+    "This makes no sense"
+  ]
+}
+
+###
+
+### 5. Test Predict with Timestamps
+POST http://localhost:8080/predict_with_timestamps
+Content-Type: application/json
+
+{
+  "comments": [
+    {
+      "text": "This is great!",
+      "timestamp": "2025-01-15"
+    },
+    {
+      "text": "Not good at all",
+      "timestamp": "2025-01-20"
+    },
+    {
+      "text": "Amazing explanation",
+      "timestamp": "2025-02-01"
+    }
+  ]
+}
+
+###
+
+### 6. Test Generate Chart (Pie Chart)
+POST http://localhost:8080/generate_chart
+Content-Type: application/json
+
+{
+  "sentiment_counts": {
+    "1": 70,
+    "0": 20,
+    "-1": 10
+  }
+}
+
+###
+
+### 7. Test Generate Chart - Más Negativos
+POST http://localhost:8080/generate_chart
+Content-Type: application/json
+
+{
+  "sentiment_counts": {
+    "1": 30,
+    "0": 20,
+    "-1": 50
+  }
+}
+
+###
+
+### 8. Test Generate Word Cloud
+POST http://localhost:8080/generate_wordcloud
+Content-Type: application/json
+
+{
+  "comments": [
+    "machine learning is amazing",
+    "deep learning neural networks",
+    "python programming is great",
+    "data science artificial intelligence",
+    "polla polla polla polla polla polla"
+  ]
+}
+
+###
+
+### 9. Test Generate Trend Graph
+POST http://localhost:8080/generate_trend_graph
+Content-Type: application/json
+
+{
+  "sentiment_data": [
+    {"timestamp": "2025-01-05", "sentiment": 1},
+    {"timestamp": "2025-01-10", "sentiment": 1},
+    {"timestamp": "2025-01-15", "sentiment": -1},
+    {"timestamp": "2025-02-01", "sentiment": 0},
+    {"timestamp": "2025-02-10", "sentiment": 1},
+    {"timestamp": "2025-02-20", "sentiment": 1},
+    {"timestamp": "2025-03-05", "sentiment": -1},
+    {"timestamp": "2025-03-15", "sentiment": 0}
+  ]
+}
+
+###
+
+### 10. Test Error - Sin Comentarios
+POST http://localhost:8080/predict
+Content-Type: application/json
+
+{
+  "comments": []
+}
+
+###
+
+### 11. Test Error - Comentarios Vacíos
+POST http://localhost:8080/predict
+Content-Type: application/json
+
+{}
+
+###
+
+### 12. Test Predict - Comentarios en Español (aunque el modelo está en inglés)
+POST http://localhost:8080/predict
+Content-Type: application/json
+
+{
+  "comments": [
+    "Este video es increíble",
+    "No me gusta nada",
+    "Está bien supongo"
+  ]
+}
+
+###
