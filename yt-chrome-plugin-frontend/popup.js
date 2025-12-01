@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const trendGraphContainer = document.getElementById('trend-graph-container');
       trendGraphContainer.appendChild(img);
     } catch (error) {
-      console.error("Error fetching trend graph image:", error);
+      console.error("Error fetching trend graph image: ", error);
       outputDiv.innerHTML += "<p>Error fetching trend graph image.</p>";
     }
   }
